@@ -48,4 +48,28 @@ export class BookLend {
 
         return BookLendDel
     }
+
+    static async suspendMember(member_code: string) {
+        let lendDate: any = null
+
+        const findMem = await prisma.members.findUnique({
+            where: {
+                code: member_code
+            },
+            select: {
+                isPenalty: true,
+                books_borrowed: {
+                    select: {
+                        lend_date: true
+                    }
+                }
+            }
+        })
+
+        findMem?.books_borrowed.map((res) => {
+            lendDate = res.lend_date
+        })
+
+        return lendDate
+    }
 }
