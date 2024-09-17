@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { addMember, getMember } from '../app/controllers/MemberController'
 import { addBook, getBook } from '../app/controllers/BookController'
+import { addLendTicket, getLendTicket } from '../app/controllers/BookLendController'
 
 const Express = require('express')
 const Api = Express()
@@ -14,5 +15,8 @@ Api.post('/member/', addMember)
 
 Api.get('/book/:code', getBook)
 Api.post('/book/', addBook)
+
+Api.get('/book-lend/:code', getLendTicket)
+Api.post('/book-lend/', addLendTicket)
 
 module.exports = Api

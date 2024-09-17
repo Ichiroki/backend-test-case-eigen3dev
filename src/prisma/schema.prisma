@@ -33,4 +33,5 @@ model books_borrowed_by_member {
   books         Books         @relation(fields: [books_code], references: [code])
   member_code   String
   member        Members        @relation(fields: [member_code], references: [code])
+  lend_date     DateTime
 }
