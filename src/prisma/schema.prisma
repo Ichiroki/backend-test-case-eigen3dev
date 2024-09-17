@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Books {
-  code            String        @id
+  code            String        @id @unique
   title           String        
   author          String
   stock           Int
@@ -22,7 +22,7 @@ model Books {
 }
 
 model Members {
-  code          String        @id
+  code          String        @id @unique
   name          String
   books_borrowed   books_borrowed_by_member[]
 }

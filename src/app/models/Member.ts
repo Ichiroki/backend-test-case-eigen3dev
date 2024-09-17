@@ -8,12 +8,16 @@ export class Member {
         public name: string,
     ) { }
     static async find (code: string) {
-        const user = await prisma.members.findUnique({
+        const member = await prisma.members.findUnique({
             where: {
                 code
+            },
+            select: {
+                code: true,
+                name: true
             }
         })
 
-        return user
+        return member
     }
 }

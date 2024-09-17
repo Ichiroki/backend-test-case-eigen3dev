@@ -9,10 +9,10 @@ export const getMember = async (req: Request, res: Response) => {
         const memberCode = req.params.code
         const member = await Member.find(memberCode)
         if(member) {
-            res.status(200).json({member, message: 'User founded'})
+            res.status(200).json({member, message: 'Member founded'})
         } else {
-            res.status(404).json({ message: 'User not found' })
-            throw "User not found"
+            res.status(404).json({ message: 'Member not found' })
+            throw "Member not found"
         }
     } catch(err) {
         console.error(err)
