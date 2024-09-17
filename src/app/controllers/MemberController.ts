@@ -29,7 +29,7 @@ export const addMember = async (req: Request, res: Response) => {
             }
         })
 
-        return res.status(201).json({member: addUser, message: 'User successfully added'})
+        return res.status(201).json({member: addUser, message: 'Member successfully added'})
     } catch(err) {
         console.log(err)
     }

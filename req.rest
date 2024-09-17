@@ -2,3 +2,31 @@
 
 GET http://127.0.0.1:3000/api/member/M001
 Content-Type: application/json
+
+
+###
+
+Post http://127.0.0.1:3000/api/member/
+Content-Type: application/json
+
+{
+    "code": "M004",
+    "name": "Fahrezi"
+}
+
+###
+
+get http://127.0.0.1:3000/api/book/JK-45
+Content-Type: application/json
+
+###
+
+post http://127.0.0.1:3000/api/book/
+Content-Type: application/json
+
+{
+    "code": "JK-45",
+    "title": "Harry Potter",
+    "author": "J.K. Rowling",
+    "stock": 1
+}
