@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { Request, Response } from 'express'
 import { Book } from '../models/Book'
+import { Member } from '../models/Member'
 
 const prisma = new PrismaClient()
 
@@ -23,7 +24,13 @@ export const addLendTicket = async (req: Request, res: Response) => {
     try {
         const book = req.body
 
+        const getMember = await Member.find(book.member_code)
         const getBook = await Book.find(book.books_code)
+
+        if(getMember?.isPenalty === true) {
+            return res.status(404).json({message: 'Your account are under suspend, wait for 3 days to borrow a book'})
+        }
+
         if(getBook?.stock !== 0) {
             const currDate = new Date().toISOString()
 

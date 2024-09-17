@@ -14,7 +14,8 @@ export class Member {
             },
             select: {
                 code: true,
-                name: true
+                name: true,
+                isPenalty: true
             }
         })
 

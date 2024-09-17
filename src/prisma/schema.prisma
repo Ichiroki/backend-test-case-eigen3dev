@@ -25,6 +25,7 @@ model Members {
   code          String        @id @unique
   name          String
   books_borrowed   books_borrowed_by_member[]
+  isPenalty     Boolean
 }
 
 model books_borrowed_by_member {

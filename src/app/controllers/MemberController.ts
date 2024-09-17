@@ -26,6 +26,7 @@ export const addMember = async (req: Request, res: Response) => {
             data: {
                 code: member.code,
                 name: member.name,
+                isPenalty: false
             }
         })
 

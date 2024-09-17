@@ -8,21 +8,24 @@ async function main () {
     const angga = await prisma.members.createMany({
         data: {
             code: "M001",
-            name: 'Angga'
+            name: 'Angga',
+            isPenalty: false,
         }
     })
 
     const ferry = await prisma.members.createMany({
         data: {
             code: "M002",
-            name: 'Ferry'
+            name: 'Ferry',
+            isPenalty: false,
         }
     })
 
     const Putri = await prisma.members.createMany({
         data: {
             code: "M003",
-            name: 'Putri'
+            name: 'Putri',
+            isPenalty: true,
         }
     })
 
