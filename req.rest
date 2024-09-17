@@ -1,0 +1,72 @@
+###
+
+Post http://localhost:3000/api/user
+Content-Type: application/json
+
+{
+    "first_name": "Fahrezi",
+    "last_name": "Rizqiawan",
+    "phone": "0843534545",
+    "nationality": "Indonesia",
+    "email": "fahrezi@gmail.com",
+    "password": "password",
+    "createdAt": "21 August 2024 12:37:05 A.M",
+    "updatedAt": "21 August 2024 12:37:05 A.M"
+}
+
+###
+
+post http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "email": "fahrezi12341234324@gmail.com",
+    "password": "adsfaer"
+}
+
+###
+
+post http://localhost:3000/localhost:3000/api/logout
+
+{
+    "email": "fahrezi@gmail.com"
+}
+###
+
+post http://localhost:3000/api/priorities/create
+Content-Type: application/json
+
+{
+    "priorities_name": "Urgent",
+    "user_id": "3d6e71c8-2e5c-4806-a3c5-d6c640211c94"
+}
+
+###
+
+post http://localhost:3000/api/task/create
+Content-Type: application/json
+
+{
+    "task_name": "Tambah sistem task",
+    "user_id": "3d6e71c8-2e5c-4806-a3c5-d6c640211c94",
+    "priorities_id": 3,
+    "description": "Coba tambah kodingan di file tersebut"
+}
+
+###
+
+post http://localhost:3000/api/task/6/update
+Content-Type: application/json
+
+{
+    "task_name": "Revisi sistem task",
+    "user_id": "3d6e71c8-2e5c-4806-a3c5-d6c640211c94",
+    "priorities_id": 3,
+    "description": "Coba tambah kodingan di file tersebut"
+}
+
+
+###
+
+post http://localhost:3000/api/task/6/delete
+Content-Type: application/json
