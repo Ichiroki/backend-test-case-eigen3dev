@@ -10,6 +10,7 @@ async function main () {
             code: "M001",
             name: 'Angga',
             isPenalty: false,
+            penalty_date: null,
         }
     })
 
@@ -18,14 +19,16 @@ async function main () {
             code: "M002",
             name: 'Ferry',
             isPenalty: false,
+            penalty_date: null,
         }
     })
 
-    const Putri = await prisma.members.createMany({
+    const putri = await prisma.members.createMany({
         data: {
             code: "M003",
             name: 'Putri',
             isPenalty: true,
+            penalty_date: null,
         }
     })
 

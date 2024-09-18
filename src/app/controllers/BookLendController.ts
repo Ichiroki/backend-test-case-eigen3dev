@@ -38,7 +38,8 @@ export const addLendTicket = async (req: Request, res: Response) => {
                 data: {
                     member_code: book.member_code,
                     books_code: book.books_code,
-                    lend_date: currDate
+                    lend_date: currDate,
+                    is_return: false
                 }
             })
 
@@ -61,6 +62,31 @@ export const addLendTicket = async (req: Request, res: Response) => {
 
 
         // return res.status(201).json({book: add, message: 'Book successfully added'})
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+export const returnLend = async (req: Request, res: Response) => {
+    try {
+        const book = req.body
+        const currDate = new Date().toISOString()
+
+        const returnBack = await prisma.books_borrowed_by_member.updateMany({
+            where: {
+                AND: [
+                    {
+                        member_code: book.member_code
+                    }
+                ]
+            },
+            data: {
+                is_return: true,
+                return_date: currDate
+            }
+        })
+
+        return res.status(201).json({data: returnBack, message: 'Book successfully returned back'})
     } catch(err) {
         console.log(err)
     }
