@@ -53,7 +53,7 @@ const initializeApp = async () => {
                 const diffTime = today.getTime() - lendDateObj.getTime()
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
-                if(diffDays >= 3) {
+                if(diffDays >= 7) {
                     await prisma.members.update({
                         where: {
                             code: member.code
